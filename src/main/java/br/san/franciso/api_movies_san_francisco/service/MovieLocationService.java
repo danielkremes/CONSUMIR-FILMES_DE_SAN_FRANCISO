@@ -19,11 +19,4 @@ public class MovieLocationService {
     public List<MovieLocation> listMovies() {
         return client.get().retrieve().bodyToFlux(MovieLocation.class).collectList().block();
     }
-
-    // Pagination by Title
-    public List<MovieLocation> filterByTitle(String query) {
-        return listMovies().stream().filter(
-                m -> m.getTitle() != null && m.getTitle().toLowerCase().contains(query.toLowerCase())
-        ).collect(Collectors.toList());
-    }
 }
