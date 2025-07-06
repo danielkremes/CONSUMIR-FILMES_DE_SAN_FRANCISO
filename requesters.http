@@ -1,3 +1,0 @@
-### Filtro de filmes com paginação
-GET http://localhost:8080/movies/filter?title=Inception&page=0&size=10
-Accept: application/json

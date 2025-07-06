@@ -19,4 +19,13 @@ public class MovieLocationService {
     public List<MovieLocation> listMovies() {
         return client.get().retrieve().bodyToFlux(MovieLocation.class).collectList().block();
     }
+
+    public List<MovieLocation> filterByYear(int year) {
+        return listMovies().stream()
+                .filter(m -> m.getRelease_year() == year)
+                .collect(Collectors.toList());
+    }
+
+
+
 }
